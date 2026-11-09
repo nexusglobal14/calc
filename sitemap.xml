@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Homepage -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 1. SIP Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/sip-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 2. Mortgage Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/mortgage-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 3. Percentage Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/percentage-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 4. Calorie & TDEE Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/calorie-tdee-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 5. Paycheck Salary Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/paycheck-salary-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 6. Compound Interest Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/compound-interest-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 7. Pregnancy Due Date Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/pregnancy-due-date-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 8. ROI & Profit Margin Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/roi-margin-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 9. Crypto DCA Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/crypto-dca-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 10. BMI Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/bmi-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 11. Age Calculator -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/age-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

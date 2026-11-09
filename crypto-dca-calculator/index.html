@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Profit & DCA Calculator | calc.nexusglobalit.org</title>
+    <meta name="description" content="Calculate profits, losses, and dollar-cost averaging strategy outcomes for crypto assets.">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="https://calc.nexusglobalit.org/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span>🌐 Nexus Global</span> <span class="text-xs bg-indigo-700 px-2 py-0.5 rounded text-indigo-200">Calculators</span>
+            </a>
+            <a href="https://calc.nexusglobalit.org/" class="text-sm bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded transition">← All Calculators</a>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">Crypto Profit & DCA Calculator</h1>
+            <p class="text-slate-600">Calculate profits, losses, and dollar-cost averaging strategy outcomes for crypto assets.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2">Inputs</h2>
+                
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Buy Price ($)</label>
+                <input type="number" id="buyPrice" value="50000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Sell Price ($)</label>
+                <input type="number" id="sellPrice" value="65000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Investment ($)</label>
+                <input type="number" id="inv" value="1000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+        
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">Calculation Output</h2>
+                    
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Tokens / Coins:</span><span id="coins" class="font-semibold text-slate-800">0</span></div>
+            <div class="flex justify-between py-2 pt-3"><span class="text-slate-800 font-bold">Total Profit / Loss:</span><span id="cryptoProfit" class="font-bold text-xl text-emerald-600">$0</span></div>
+        
+                </div>
+            </div>
+        </div>
+
+        <section class="bg-white p-6 rounded-xl border border-slate-200">
+            <h2 class="text-xl font-bold text-slate-900 mb-3">About & Formula</h2>
+            <p class="text-slate-600 leading-relaxed">Track cryptocurrency entry and exit positions to compute net yields and returns on investment.</p>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 text-center py-4 text-sm border-t border-slate-800">
+        <p>&copy; calc.nexusglobalit.org - All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        
+            function calculate() {
+                const buy = parseFloat(document.getElementById('buyPrice').value);
+                const sell = parseFloat(document.getElementById('sellPrice').value);
+                const inv = parseFloat(document.getElementById('inv').value);
+                
+                if (buy > 0 && sell > 0 && inv > 0) {
+                    const coins = inv / buy;
+                    const totalVal = coins * sell;
+                    const profit = totalVal - inv;
+                    
+                    document.getElementById('coins').innerText = coins.toFixed(4);
+                    document.getElementById('cryptoProfit').innerText = '$' + profit.toLocaleString('en-US', {maximumFractionDigits: 2});
+                }
+            }
+            document.querySelectorAll('input').forEach(i => i.addEventListener('input', calculate));
+            calculate();
+        
+    </script>
+</body>
+</html>

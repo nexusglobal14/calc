@@ -9,6 +9,30 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- About Us Page -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/about.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Privacy Policy Page -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/privacy-policy.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Contact Us Page -->
+  <url>
+    <loc>https://calc.nexusglobalit.org/contact.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- 1. SIP Calculator -->
   <url>
     <loc>https://calc.nexusglobalit.org/sip-calculator/</loc>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Advanced Age & Date Difference Calculator</title>
+<title>Advanced Age & Date Calculator - Nexus Global</title>
 <style>
   :root {
     --primary: #4f46e5;
@@ -25,10 +25,58 @@
     background-color: var(--bg);
     color: var(--text);
     display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  /* Top Navbar matching Nexus Global style */
+  .navbar {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #fff;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  .nav-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .nav-back {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .nav-back:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Main Wrapper */
+  .main-wrapper {
+    flex: 1;
+    display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh;
-    padding: 24px 16px;
+    padding: 30px 16px;
   }
   .container {
     background: var(--card);
@@ -39,23 +87,21 @@
     border: 1px solid var(--border);
     overflow: hidden;
   }
-  .header {
-    background: linear-gradient(135deg, var(--primary), #6366f1);
-    color: #fff;
-    padding: 24px 28px;
-    text-align: center;
+  .header-section {
+    padding: 24px 28px 10px 28px;
   }
-  .header h1 {
-    font-size: 1.5rem;
+  .header-section h1 {
+    font-size: 1.6rem;
     font-weight: 700;
+    color: var(--text);
     margin-bottom: 6px;
   }
-  .header p {
+  .header-section p {
     font-size: 0.9rem;
-    opacity: 0.9;
+    color: var(--muted);
   }
   .content {
-    padding: 28px;
+    padding: 20px 28px 28px 28px;
   }
   .input-grid {
     display: grid;
@@ -233,92 +279,118 @@
   .btn-copy:hover {
     background: #334155;
   }
+
+  /* Footer matching reference image */
+  footer {
+    background: #0b0f19;
+    color: #94a3b8;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.85rem;
+    border-top: 1px solid #1e293b;
+  }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="header">
-    <h1>Advanced Age &amp; Date Calculator</h1>
-    <p>Calculate exact chronological age, total units lived, zodiac sign &amp; next birthday countdown</p>
-  </div>
+<!-- Top Navigation Bar -->
+<div class="navbar">
+  <a href="../index.html" class="nav-brand">
+    <span>Nexus Global</span>
+    <span class="nav-badge">Calculators</span>
+  </a>
+  <a href="../index.html" class="nav-back">← All Calculators</a>
+</div>
 
-  <div class="content">
-    <div class="input-grid">
-      <div class="form-group">
-        <label for="dob">Date of Birth</label>
-        <input type="date" id="dob">
-      </div>
-      <div class="form-group">
-        <label for="targetDate">Age at the Date of</label>
-        <input type="date" id="targetDate">
-      </div>
+<div class="main-wrapper">
+  <div class="container">
+    <div class="header-section">
+      <h1>Advanced Age &amp; Date Calculator</h1>
+      <p>Calculate exact chronological age, total units lived, zodiac sign &amp; next birthday countdown</p>
     </div>
 
-    <div class="btn-row">
-      <button class="btn-primary" id="calcBtn">Calculate Exact Age</button>
-      <button class="btn-secondary" id="resetBtn">Reset</button>
-    </div>
-
-    <div class="error-msg" id="errorMsg"></div>
-
-    <div class="results" id="results">
-      <div class="hero-age">
-        <div class="label">Exact Chronological Age</div>
-        <div class="value" id="exactAgeText"></div>
-      </div>
-
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="num" id="totalMonths">0</div>
-          <div class="desc">Total Months</div>
+    <div class="content">
+      <div class="input-grid">
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob">
         </div>
-        <div class="stat-card">
-          <div class="num" id="totalWeeks">0</div>
-          <div class="desc">Total Weeks</div>
-        </div>
-        <div class="stat-card">
-          <div class="num" id="totalDays">0</div>
-          <div class="desc">Total Days</div>
-        </div>
-        <div class="stat-card">
-          <div class="num" id="totalHours">0</div>
-          <div class="desc">Total Hours</div>
-        </div>
-        <div class="stat-card">
-          <div class="num" id="totalMinutes">0</div>
-          <div class="desc">Total Minutes</div>
-        </div>
-        <div class="stat-card">
-          <div class="num" id="totalSeconds">0</div>
-          <div class="desc">Total Seconds</div>
+        <div class="form-group">
+          <label for="targetDate">Age at the Date of</label>
+          <input type="date" id="targetDate">
         </div>
       </div>
 
-      <div class="extra-grid">
-        <div class="info-box">
-          <h4>Next Birthday</h4>
-          <p id="nextBirthdayCountdown">-</p>
-          <small id="nextBirthdayDay">-</small>
-        </div>
-        <div class="info-box">
-          <h4>Born On</h4>
-          <p id="bornDayOfWeek">-</p>
-          <small id="leapYearInfo">-</small>
-        </div>
-        <div class="info-box">
-          <h4>Western Zodiac Sign</h4>
-          <p id="zodiacSign">-</p>
-          <small id="generationInfo">-</small>
-        </div>
+      <div class="btn-row">
+        <button class="btn-primary" id="calcBtn">Calculate Exact Age</button>
+        <button class="btn-secondary" id="resetBtn">Reset</button>
       </div>
 
-      <div class="copy-bar">
-        <button class="btn-copy" id="copyBtn">Copy Summary</button>
+      <div class="error-msg" id="errorMsg"></div>
+
+      <div class="results" id="results">
+        <div class="hero-age">
+          <div class="label">Exact Chronological Age</div>
+          <div class="value" id="exactAgeText"></div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="num" id="totalMonths">0</div>
+            <div class="desc">Total Months</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalWeeks">0</div>
+            <div class="desc">Total Weeks</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalDays">0</div>
+            <div class="desc">Total Days</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalHours">0</div>
+            <div class="desc">Total Hours</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalMinutes">0</div>
+            <div class="desc">Total Minutes</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalSeconds">0</div>
+            <div class="desc">Total Seconds</div>
+          </div>
+        </div>
+
+        <div class="extra-grid">
+          <div class="info-box">
+            <h4>Next Birthday</h4>
+            <p id="nextBirthdayCountdown">-</p>
+            <small id="nextBirthdayDay">-</small>
+          </div>
+          <div class="info-box">
+            <h4>Born On</h4>
+            <p id="bornDayOfWeek">-</p>
+            <small id="leapYearInfo">-</small>
+          </div>
+          <div class="info-box">
+            <h4>Western Zodiac Sign</h4>
+            <p id="zodiacSign">-</p>
+            <small id="generationInfo">-</small>
+          </div>
+        </div>
+
+        <div class="copy-bar">
+          <button class="btn-copy" id="copyBtn">Copy Summary</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Footer matching reference image -->
+<footer>
+  &copy; calc.nexusglobalit.org - All Rights Reserved.
+</footer>
 
 <script>
   const dobInput = document.getElementById('dob');
@@ -425,7 +497,6 @@
     const totalMinutes = totalHours * 60;
     const totalSeconds = totalMinutes * 60;
 
-    // Next Birthday calculation relative to target date
     let nextBdayYear = target.getFullYear();
     let nextBday = new Date(nextBdayYear, dob.getMonth(), dob.getDate());
     if (dob.getMonth() === 1 && dob.getDate() === 29 && !isLeapYear(nextBdayYear)) {

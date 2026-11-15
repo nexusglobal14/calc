@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+<title>Percentage Calculator - What Is X% of a Number | Nexus Global</title>
+    <meta name="description" content="Find what percent of a number is, such as 15% of 250. Useful for discounts, tips, tax and margins. Free and instant.">
+    <link rel="canonical" href="https://calc.nexusglobalit.org/percentage-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Global Calculators">
+    <meta property="og:title" content="Percentage Calculator - What Is X% of a Number">
+    <meta property="og:description" content="Find what percent of a number is, such as 15% of 250. Useful for discounts, tips, tax and margins. Free and instant.">
+    <meta property="og:url" content="https://calc.nexusglobalit.org/percentage-calculator/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Percentage Calculator", "url": "https://calc.nexusglobalit.org/percentage-calculator/", "description": "Find what percent of a number is, such as 15% of 250. Useful for discounts, tips, tax and margins. Free and instant.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Calculators", "item": "https://calc.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Percentage Calculator", "item": "https://calc.nexusglobalit.org/percentage-calculator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate a discount?", "acceptedAnswer": {"@type": "Answer", "text": "Enter the discount percentage and the original price. The result is the amount saved. Subtract it from the price for the final cost."}}, {"@type": "Question", "name": "How do I add a percentage to a number?", "acceptedAnswer": {"@type": "Answer", "text": "Calculate the percentage with this tool, then add the result to the original number. For example, 8% tax on $200 is $16, for a total of $216."}}, {"@type": "Question", "name": "Can I enter decimals?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Both fields accept decimal values such as 7.5."}}, {"@type": "Question", "name": "How do I find what percent one number is of another?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the first number by the second and multiply by 100. For example, 30 of 120 is 30 ÷ 120 × 100 = 25%."}}]}]</script>
+<style>
+.seo-content{max-width:56rem;margin:2rem auto;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;color:#475569;line-height:1.7;font-size:.95rem}
+.seo-content h2{font-size:1.2rem;font-weight:700;color:#0f172a;margin:1.4rem 0 .5rem}
+.seo-content h2:first-child{margin-top:0}
+.seo-content h3{font-size:1rem;font-weight:600;color:#1e293b;margin:.9rem 0 .2rem}
+.seo-content ol{list-style:decimal;padding-left:1.4rem}.seo-content ul.related{list-style:disc;padding-left:1.4rem}
+.seo-content a{color:#4f46e5;text-decoration:underline}
+.seo-content .disclaimer{margin-top:1.2rem;padding:.8rem 1rem;background:#f8fafc;border-left:4px solid #6366f1;font-size:.85rem}
+.site-footer{background:#0f172a;color:#94a3b8;font-size:.85rem;text-align:center;padding:1.2rem 1rem;border-top:1px solid #1e293b}
+.site-footer a{color:#cbd5e1;margin:0 .7rem}.site-footer a:hover{color:#fff}
+.breadcrumb{max-width:56rem;margin:1rem auto 0;padding:0 1rem;font-size:.8rem;color:#64748b}.breadcrumb a{color:#4f46e5}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="https://calc.nexusglobalit.org/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span>🌐 Nexus Global</span> <span class="text-xs bg-indigo-700 px-2 py-0.5 rounded text-indigo-200">Calculators</span>
+            </a>
+            <a href="https://calc.nexusglobalit.org/" class="text-sm bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded transition">← All Calculators</a>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Calculators</a> &rsaquo; <span>Percentage Calculator</span></nav>
+    <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">Percentage Calculator</h1>
+            <p class="text-slate-600">Find what a given percentage of a number is, instantly.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2">Inputs</h2>
+                
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">What is (%)</label>
+                <input type="number" id="pct" value="15" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Of Number</label>
+                <input type="number" id="val" value="250" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+        
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">Calculation Output</h2>
+                    
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Result:</span><span id="res" class="font-bold text-2xl text-indigo-600">0</span></div>
+        
+                </div>
+            </div>
+        </div>
+
+        
+    <section class="seo-content" id="about-this-calculator">
+<h2>About the Percentage Calculator</h2>
+<p>This calculator answers the most common percentage question: what is X percent of a number? Enter the percentage and the number, and the result appears instantly. It is useful for working out discounts, sales tax, tips, commissions and shares of a total.</p>
+<h2>How to use it</h2>
+<ol><li>Enter the percentage in the first field.</li><li>Enter the number you want to take the percentage of.</li><li>Read the result.</li></ol>
+<h2>The formula</h2>
+<p><strong>Result = (percentage ÷ 100) × number</strong>. For example, 15% of 250 is 0.15 × 250 = 37.5.</p>
+<h2>Worked example</h2>
+<p>A jacket costs $250 and is 15% off. The discount is 15% of 250 = $37.50, so you pay $212.50. For an 18% tip on a $60 bill, enter 18 and 60 to get $10.80.</p>
+<h2>Things to keep in mind</h2>
+<p>This tool calculates a percentage of a value. To find a percentage change, subtract the old value from the new one, divide by the old value and multiply by 100. For profit-related percentages, try the ROI and profit margin calculator.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>How do I calculate a discount?</h3><p>Enter the discount percentage and the original price. The result is the amount saved. Subtract it from the price for the final cost.</p></div><div class="faq-item"><h3>How do I add a percentage to a number?</h3><p>Calculate the percentage with this tool, then add the result to the original number. For example, 8% tax on $200 is $16, for a total of $216.</p></div><div class="faq-item"><h3>Can I enter decimals?</h3><p>Yes. Both fields accept decimal values such as 7.5.</p></div><div class="faq-item"><h3>How do I find what percent one number is of another?</h3><p>Divide the first number by the second and multiply by 100. For example, 30 of 120 is 30 ÷ 120 × 100 = 25%.</p></div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="/roi-margin-calculator/">ROI & Profit Margin Calculator</a></li><li><a href="/paycheck-salary-calculator/">Paycheck Salary Calculator</a></li><li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li></ul>
+</section>
+</main>
+
+    <footer class="site-footer"><nav aria-label="Footer"><a href="/">All Calculators</a><a href="/about.html">About Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a><a href="https://www.nexusglobalit.org/">Nexus Global</a></nav><p style="margin-top:.6rem">&copy; 2026 calc.nexusglobalit.org - All Rights Reserved.</p></footer>
+
+    <script>
+        
+            function calculate() {
+                const pct = parseFloat(document.getElementById('pct').value);
+                const val = parseFloat(document.getElementById('val').value);
+                if (!isNaN(pct) && !isNaN(val)) {
+                    const res = (pct / 100) * val;
+                    document.getElementById('res').innerText = res.toLocaleString('en-US');
+                }
+            }
+            document.querySelectorAll('input').forEach(i => i.addEventListener('input', calculate));
+            calculate();
+        
+    </script>
+</body>
+</html>

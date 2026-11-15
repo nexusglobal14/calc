@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+<title>Paycheck &amp; Take-Home Salary Calculator (Flat Tax Estimate) | Nexus Global</title>
+    <meta name="description" content="Estimate net annual take-home pay from your gross salary using a single estimated tax rate. Quick flat-rate estimate, not a full payroll tax calculation.">
+    <link rel="canonical" href="https://calc.nexusglobalit.org/paycheck-salary-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Global Calculators">
+    <meta property="og:title" content="Paycheck &amp; Take-Home Salary Calculator (Flat Tax Estimate)">
+    <meta property="og:description" content="Estimate net annual take-home pay from your gross salary using a single estimated tax rate. Quick flat-rate estimate, not a full payroll tax calculation.">
+    <meta property="og:url" content="https://calc.nexusglobalit.org/paycheck-salary-calculator/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Paycheck & Take-Home Salary Calculator", "url": "https://calc.nexusglobalit.org/paycheck-salary-calculator/", "description": "Estimate net annual take-home pay from your gross salary using a single estimated tax rate. Quick flat-rate estimate, not a full payroll tax calculation.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Calculators", "item": "https://calc.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Paycheck Salary Calculator", "item": "https://calc.nexusglobalit.org/paycheck-salary-calculator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What tax rate should I enter?", "acceptedAnswer": {"@type": "Answer", "text": "Look at a recent pay stub and divide total deductions by gross pay. Use that percentage as your estimated rate."}}, {"@type": "Question", "name": "Does this calculate federal or state tax?", "acceptedAnswer": {"@type": "Answer", "text": "No. It applies one flat rate that you choose. It does not use tax brackets."}}, {"@type": "Question", "name": "How do I get monthly take-home pay?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the net annual pay by 12."}}, {"@type": "Question", "name": "Is the result exact?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is an estimate for planning purposes only."}}]}]</script>
+<style>
+.seo-content{max-width:56rem;margin:2rem auto;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;color:#475569;line-height:1.7;font-size:.95rem}
+.seo-content h2{font-size:1.2rem;font-weight:700;color:#0f172a;margin:1.4rem 0 .5rem}
+.seo-content h2:first-child{margin-top:0}
+.seo-content h3{font-size:1rem;font-weight:600;color:#1e293b;margin:.9rem 0 .2rem}
+.seo-content ol{list-style:decimal;padding-left:1.4rem}.seo-content ul.related{list-style:disc;padding-left:1.4rem}
+.seo-content a{color:#4f46e5;text-decoration:underline}
+.seo-content .disclaimer{margin-top:1.2rem;padding:.8rem 1rem;background:#f8fafc;border-left:4px solid #6366f1;font-size:.85rem}
+.site-footer{background:#0f172a;color:#94a3b8;font-size:.85rem;text-align:center;padding:1.2rem 1rem;border-top:1px solid #1e293b}
+.site-footer a{color:#cbd5e1;margin:0 .7rem}.site-footer a:hover{color:#fff}
+.breadcrumb{max-width:56rem;margin:1rem auto 0;padding:0 1rem;font-size:.8rem;color:#64748b}.breadcrumb a{color:#4f46e5}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="https://calc.nexusglobalit.org/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span>🌐 Nexus Global</span> <span class="text-xs bg-indigo-700 px-2 py-0.5 rounded text-indigo-200">Calculators</span>
+            </a>
+            <a href="https://calc.nexusglobalit.org/" class="text-sm bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded transition">← All Calculators</a>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Calculators</a> &rsaquo; <span>Paycheck Salary Calculator</span></nav>
+    <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">Paycheck & Take-Home Salary Calculator</h1>
+            <p class="text-slate-600">Estimate your net take-home pay from a gross salary and a flat estimated tax rate.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2">Inputs</h2>
+                
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Gross Annual Salary ($)</label>
+                <input type="number" id="gross" value="60000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Estimated Tax Rate (%)</label>
+                <input type="number" id="taxRate" value="20" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+        
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">Calculation Output</h2>
+                    
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Gross Income:</span><span id="grossVal" class="font-semibold text-slate-800">$0</span></div>
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Deductions / Taxes:</span><span id="taxVal" class="font-semibold text-rose-600">$0</span></div>
+            <div class="flex justify-between py-2 pt-3"><span class="text-slate-800 font-bold">Net Annual Pay:</span><span id="netVal" class="font-bold text-xl text-emerald-600">$0</span></div>
+        
+                </div>
+            </div>
+        </div>
+
+        
+    <section class="seo-content" id="about-this-calculator">
+<h2>About the Paycheck & Take-Home Salary Calculator</h2>
+<p>This calculator gives a quick estimate of your take-home pay. Enter your gross annual salary and one estimated overall tax and deduction rate, and it shows the total deducted and your net annual pay. It uses a single flat rate, so it is a rough planning tool rather than a payroll calculation.</p>
+<h2>How to use it</h2>
+<ol><li>Enter your gross annual salary before deductions.</li><li>Enter an estimated combined tax and deduction rate as a percentage.</li><li>Read the gross income, deductions and net annual pay.</li></ol>
+<h2>The formula</h2>
+<p><strong>Deductions = gross salary × (rate ÷ 100)</strong> and <strong>Net pay = gross salary − deductions</strong>. Divide the net figure by 12 for an approximate monthly amount, or by 26 or 52 for biweekly or weekly pay.</p>
+<h2>Worked example</h2>
+<p>With a gross salary of $60,000 and an estimated 20% rate, deductions are $12,000 and net annual pay is $48,000. That is about $4,000 per month.</p>
+<h2>Things to keep in mind</h2>
+<p>Real income tax is usually progressive, so higher portions of income are taxed at higher rates. Actual deductions also depend on your country, state, filing status, retirement contributions, health insurance and other items. Use your pay stub or your tax authority's tools for exact figures. This calculator does not look up any tax tables.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>What tax rate should I enter?</h3><p>Look at a recent pay stub and divide total deductions by gross pay. Use that percentage as your estimated rate.</p></div><div class="faq-item"><h3>Does this calculate federal or state tax?</h3><p>No. It applies one flat rate that you choose. It does not use tax brackets.</p></div><div class="faq-item"><h3>How do I get monthly take-home pay?</h3><p>Divide the net annual pay by 12.</p></div><div class="faq-item"><h3>Is the result exact?</h3><p>No. It is an estimate for planning purposes only.</p></div>
+<p class="disclaimer"><strong>Disclaimer:</strong> This calculator gives estimates for general information only. It is not financial advice. Real-world results depend on fees, taxes, market conditions and your personal situation, so consult a qualified financial professional before making decisions.</p>
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/mortgage-calculator/">Mortgage Calculator</a></li><li><a href="/sip-calculator/">SIP Calculator</a></li></ul>
+</section>
+</main>
+
+    <footer class="site-footer"><nav aria-label="Footer"><a href="/">All Calculators</a><a href="/about.html">About Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a><a href="https://www.nexusglobalit.org/">Nexus Global</a></nav><p style="margin-top:.6rem">&copy; 2026 calc.nexusglobalit.org - All Rights Reserved.</p></footer>
+
+    <script>
+        
+            function calculate() {
+                const gross = parseFloat(document.getElementById('gross').value);
+                const taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
+                
+                if (gross > 0) {
+                    const tax = gross * taxRate;
+                    const net = gross - tax;
+                    document.getElementById('grossVal').innerText = '$' + gross.toLocaleString('en-US');
+                    document.getElementById('taxVal').innerText = '$' + tax.toLocaleString('en-US');
+                    document.getElementById('netVal').innerText = '$' + net.toLocaleString('en-US');
+                }
+            }
+            document.querySelectorAll('input').forEach(i => i.addEventListener('input', calculate));
+            calculate();
+        
+    </script>
+</body>
+</html>

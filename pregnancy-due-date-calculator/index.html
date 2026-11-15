@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+<title>Pregnancy Due Date Calculator - Naegele's Rule | Nexus Global</title>
+    <meta name="description" content="Estimate your due date from the first day of your last period using Naegele's rule (LMP plus 280 days). Free pregnancy due date calculator.">
+    <link rel="canonical" href="https://calc.nexusglobalit.org/pregnancy-due-date-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Global Calculators">
+    <meta property="og:title" content="Pregnancy Due Date Calculator - Naegele's Rule">
+    <meta property="og:description" content="Estimate your due date from the first day of your last period using Naegele's rule (LMP plus 280 days). Free pregnancy due date calculator.">
+    <meta property="og:url" content="https://calc.nexusglobalit.org/pregnancy-due-date-calculator/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Pregnancy Due Date Calculator", "url": "https://calc.nexusglobalit.org/pregnancy-due-date-calculator/", "description": "Estimate your due date from the first day of your last period using Naegele's rule (LMP plus 280 days). Free pregnancy due date calculator.", "applicationCategory": "HealthApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Calculators", "item": "https://calc.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Pregnancy Due Date Calculator", "item": "https://calc.nexusglobalit.org/pregnancy-due-date-calculator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How accurate is a due date?", "acceptedAnswer": {"@type": "Answer", "text": "It is an estimate. Most babies are born within a couple of weeks either side of it."}}, {"@type": "Question", "name": "What if my cycle is not 28 days?", "acceptedAnswer": {"@type": "Answer", "text": "The calculation may be off by several days. Ask your provider to confirm the date."}}, {"@type": "Question", "name": "How many weeks is a full-term pregnancy?", "acceptedAnswer": {"@type": "Answer", "text": "Full term is considered 39 to 40 weeks. Early term is 37 to 38 weeks, and late term is 41 weeks."}}, {"@type": "Question", "name": "What if I do not know my last period date?", "acceptedAnswer": {"@type": "Answer", "text": "Contact a healthcare provider. An ultrasound can estimate gestational age."}}]}]</script>
+<style>
+.seo-content{max-width:56rem;margin:2rem auto;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;color:#475569;line-height:1.7;font-size:.95rem}
+.seo-content h2{font-size:1.2rem;font-weight:700;color:#0f172a;margin:1.4rem 0 .5rem}
+.seo-content h2:first-child{margin-top:0}
+.seo-content h3{font-size:1rem;font-weight:600;color:#1e293b;margin:.9rem 0 .2rem}
+.seo-content ol{list-style:decimal;padding-left:1.4rem}.seo-content ul.related{list-style:disc;padding-left:1.4rem}
+.seo-content a{color:#4f46e5;text-decoration:underline}
+.seo-content .disclaimer{margin-top:1.2rem;padding:.8rem 1rem;background:#f8fafc;border-left:4px solid #6366f1;font-size:.85rem}
+.site-footer{background:#0f172a;color:#94a3b8;font-size:.85rem;text-align:center;padding:1.2rem 1rem;border-top:1px solid #1e293b}
+.site-footer a{color:#cbd5e1;margin:0 .7rem}.site-footer a:hover{color:#fff}
+.breadcrumb{max-width:56rem;margin:1rem auto 0;padding:0 1rem;font-size:.8rem;color:#64748b}.breadcrumb a{color:#4f46e5}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="https://calc.nexusglobalit.org/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span>🌐 Nexus Global</span> <span class="text-xs bg-indigo-700 px-2 py-0.5 rounded text-indigo-200">Calculators</span>
+            </a>
+            <a href="https://calc.nexusglobalit.org/" class="text-sm bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded transition">← All Calculators</a>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Calculators</a> &rsaquo; <span>Pregnancy Due Date Calculator</span></nav>
+    <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">Pregnancy Due Date Calculator</h1>
+            <p class="text-slate-600">Calculate estimated delivery dates based on standard medical Naegele's rule.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2">Inputs</h2>
+                
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">First Day of Last Period (LMP)</label>
+                <input type="date" id="lmp" value="2026-01-01" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+        
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">Calculation Output</h2>
+                    
+            <div class="flex justify-between py-2 pt-3"><span class="text-slate-800 font-bold">Estimated Due Date:</span><span id="dueDate" class="font-bold text-xl text-indigo-600">-</span></div>
+        
+                </div>
+            </div>
+        </div>
+
+        
+    <section class="seo-content" id="about-this-calculator">
+<h2>About the Pregnancy Due Date Calculator</h2>
+<p>This calculator estimates your estimated due date (EDD) from the first day of your last menstrual period (LMP). Select that date and the tool adds 280 days, which is 40 weeks, using the method known as Naegele's rule.</p>
+<h2>How to use it</h2>
+<ol><li>Select the first day of your last menstrual period.</li><li>Read your estimated due date.</li></ol>
+<h2>The formula</h2>
+<p><strong>Due date = first day of last period + 280 days</strong> (40 weeks). This is equivalent to adding one year, subtracting three months and adding seven days.</p>
+<h2>Worked example</h2>
+<p>If the first day of your last period was January 1, 2026, adding 280 days gives an estimated due date of October 8, 2026.</p>
+<h2>Things to keep in mind</h2>
+<p>Naegele's rule assumes a regular 28-day cycle with ovulation around day 14. If your cycles are shorter, longer or irregular, or you conceived through IVF, the true date can differ. Only about 4 to 5 percent of babies are born on the exact due date, and a normal full-term birth can happen from roughly 37 to 42 weeks. Your provider may adjust the date after an early ultrasound.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>How accurate is a due date?</h3><p>It is an estimate. Most babies are born within a couple of weeks either side of it.</p></div><div class="faq-item"><h3>What if my cycle is not 28 days?</h3><p>The calculation may be off by several days. Ask your provider to confirm the date.</p></div><div class="faq-item"><h3>How many weeks is a full-term pregnancy?</h3><p>Full term is considered 39 to 40 weeks. Early term is 37 to 38 weeks, and late term is 41 weeks.</p></div><div class="faq-item"><h3>What if I do not know my last period date?</h3><p>Contact a healthcare provider. An ultrasound can estimate gestational age.</p></div>
+<p class="disclaimer"><strong>Disclaimer:</strong> This calculator is for general information only and is not medical advice. It cannot diagnose any condition. Please talk to a doctor or other qualified healthcare professional about your own health. Only a healthcare provider can confirm your due date, usually with an ultrasound.</p>
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/calorie-tdee-calculator/">Calorie & TDEE Calculator</a></li></ul>
+</section>
+</main>
+
+    <footer class="site-footer"><nav aria-label="Footer"><a href="/">All Calculators</a><a href="/about.html">About Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a><a href="https://www.nexusglobalit.org/">Nexus Global</a></nav><p style="margin-top:.6rem">&copy; 2026 calc.nexusglobalit.org - All Rights Reserved.</p></footer>
+
+    <script>
+        
+            function calculate() {
+                const lmpVal = document.getElementById('lmp').value;
+                if (lmpVal) {
+                    const lmp = new Date(lmpVal + 'T00:00:00');
+                    const due = new Date(lmp.getFullYear(), lmp.getMonth(), lmp.getDate() + 280);
+                    document.getElementById('dueDate').innerText = due.toDateString();
+                }
+            }
+            document.getElementById('lmp').addEventListener('change', calculate);
+            calculate();
+        
+    </script>
+</body>
+</html>

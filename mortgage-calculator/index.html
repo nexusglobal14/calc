@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+<title>Mortgage Calculator - Estimate Monthly Loan Payments | Nexus Global</title>
+    <meta name="description" content="Estimate your monthly mortgage payment, total interest and total cost from home price, down payment, interest rate and loan term. Free, runs in your browser.">
+    <link rel="canonical" href="https://calc.nexusglobalit.org/mortgage-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Global Calculators">
+    <meta property="og:title" content="Mortgage Calculator - Estimate Monthly Loan Payments">
+    <meta property="og:description" content="Estimate your monthly mortgage payment, total interest and total cost from home price, down payment, interest rate and loan term. Free, runs in your browser.">
+    <meta property="og:url" content="https://calc.nexusglobalit.org/mortgage-calculator/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Mortgage Loan Calculator", "url": "https://calc.nexusglobalit.org/mortgage-calculator/", "description": "Estimate your monthly mortgage payment, total interest and total cost from home price, down payment, interest rate and loan term. Free, runs in your browser.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Calculators", "item": "https://calc.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Mortgage Calculator", "item": "https://calc.nexusglobalit.org/mortgage-calculator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is included in the monthly payment?", "acceptedAnswer": {"@type": "Answer", "text": "Only principal and interest. Taxes, insurance and other fees are not included."}}, {"@type": "Question", "name": "How does a bigger down payment change the result?", "acceptedAnswer": {"@type": "Answer", "text": "A larger down payment reduces the amount borrowed, which lowers both the monthly payment and the total interest."}}, {"@type": "Question", "name": "Why is so much interest paid on a 30-year loan?", "acceptedAnswer": {"@type": "Answer", "text": "Interest is charged on the remaining balance each month, and a long term keeps that balance high for many years. A shorter term costs more per month but much less in total interest."}}, {"@type": "Question", "name": "Does this work for adjustable-rate loans?", "acceptedAnswer": {"@type": "Answer", "text": "No. It assumes one fixed rate for the full term."}}]}]</script>
+<style>
+.seo-content{max-width:56rem;margin:2rem auto;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;color:#475569;line-height:1.7;font-size:.95rem}
+.seo-content h2{font-size:1.2rem;font-weight:700;color:#0f172a;margin:1.4rem 0 .5rem}
+.seo-content h2:first-child{margin-top:0}
+.seo-content h3{font-size:1rem;font-weight:600;color:#1e293b;margin:.9rem 0 .2rem}
+.seo-content ol{list-style:decimal;padding-left:1.4rem}.seo-content ul.related{list-style:disc;padding-left:1.4rem}
+.seo-content a{color:#4f46e5;text-decoration:underline}
+.seo-content .disclaimer{margin-top:1.2rem;padding:.8rem 1rem;background:#f8fafc;border-left:4px solid #6366f1;font-size:.85rem}
+.site-footer{background:#0f172a;color:#94a3b8;font-size:.85rem;text-align:center;padding:1.2rem 1rem;border-top:1px solid #1e293b}
+.site-footer a{color:#cbd5e1;margin:0 .7rem}.site-footer a:hover{color:#fff}
+.breadcrumb{max-width:56rem;margin:1rem auto 0;padding:0 1rem;font-size:.8rem;color:#64748b}.breadcrumb a{color:#4f46e5}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="https://calc.nexusglobalit.org/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span>🌐 Nexus Global</span> <span class="text-xs bg-indigo-700 px-2 py-0.5 rounded text-indigo-200">Calculators</span>
+            </a>
+            <a href="https://calc.nexusglobalit.org/" class="text-sm bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded transition">← All Calculators</a>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Calculators</a> &rsaquo; <span>Mortgage Calculator</span></nav>
+    <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">Mortgage Loan Calculator</h1>
+            <p class="text-slate-600">Calculate estimated monthly home loan payments, total interest paid, and total cost of purchasing a house.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2">Inputs</h2>
+                
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Home Price ($)</label>
+                <input type="number" id="homeValue" value="300000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Down Payment ($)</label>
+                <input type="number" id="downPayment" value="60000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Interest Rate (% p.a)</label>
+                <input type="number" id="interest" value="6.5" step="0.1" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Loan Term (Years)</label>
+                <input type="number" id="term" value="30" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+        
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">Calculation Output</h2>
+                    
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Monthly Payment (EMI):</span><span id="emi" class="font-bold text-xl text-indigo-600">$0</span></div>
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Total Interest Paid:</span><span id="interestTotal" class="font-semibold text-rose-600">$0</span></div>
+            <div class="flex justify-between py-2 pt-3"><span class="text-slate-800 font-bold">Total Amount Paid:</span><span id="grandTotal" class="font-semibold text-slate-800">$0</span></div>
+        
+                </div>
+            </div>
+        </div>
+
+        
+    <section class="seo-content" id="about-this-calculator">
+<h2>About the Mortgage Loan Calculator</h2>
+<p>This mortgage calculator estimates the monthly payment (EMI) on a fixed-rate home loan. Enter the home price, your down payment, the annual interest rate and the loan term in years. The tool subtracts the down payment to find the amount borrowed, then shows your monthly payment, the total interest you would pay over the life of the loan and the total amount repaid.</p>
+<h2>How to use it</h2>
+<ol><li>Enter the home price in dollars.</li><li>Enter your down payment. The loan amount is the home price minus this figure.</li><li>Enter the annual interest rate, for example 6.5.</li><li>Enter the loan term in years. Common terms are 15 and 30 years.</li><li>Read the monthly payment, total interest and total amount paid. Results update as you type.</li></ol>
+<h2>The formula</h2>
+<p>The monthly payment uses the standard amortization formula: <strong>EMI = P × r × (1 + r)<sup>n</sup> ÷ ((1 + r)<sup>n</sup> − 1)</strong>, where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100) and n is the number of monthly payments (years × 12). Total paid is EMI × n, and total interest is total paid minus P.</p>
+<h2>Worked example</h2>
+<p>A $300,000 home with a $60,000 down payment means a $240,000 loan. At 6.5% interest over 30 years, the monthly payment is about $1,517. Over 360 payments you would repay about $546,107, which means roughly $306,107 of that is interest.</p>
+<h2>Things to keep in mind</h2>
+<p>The result covers principal and interest only. Property tax, home insurance, HOA fees and mortgage insurance are not included, so your actual monthly housing cost will be higher. The calculator assumes a fixed rate for the whole term and requires an interest rate above zero.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>What is included in the monthly payment?</h3><p>Only principal and interest. Taxes, insurance and other fees are not included.</p></div><div class="faq-item"><h3>How does a bigger down payment change the result?</h3><p>A larger down payment reduces the amount borrowed, which lowers both the monthly payment and the total interest.</p></div><div class="faq-item"><h3>Why is so much interest paid on a 30-year loan?</h3><p>Interest is charged on the remaining balance each month, and a long term keeps that balance high for many years. A shorter term costs more per month but much less in total interest.</p></div><div class="faq-item"><h3>Does this work for adjustable-rate loans?</h3><p>No. It assumes one fixed rate for the full term.</p></div>
+<p class="disclaimer"><strong>Disclaimer:</strong> This calculator gives estimates for general information only. It is not financial advice. Real-world results depend on fees, taxes, market conditions and your personal situation, so consult a qualified financial professional before making decisions.</p>
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="/sip-calculator/">SIP Calculator</a></li><li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li><li><a href="/paycheck-salary-calculator/">Paycheck Salary Calculator</a></li></ul>
+</section>
+</main>
+
+    <footer class="site-footer"><nav aria-label="Footer"><a href="/">All Calculators</a><a href="/about.html">About Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a><a href="https://www.nexusglobalit.org/">Nexus Global</a></nav><p style="margin-top:.6rem">&copy; 2026 calc.nexusglobalit.org - All Rights Reserved.</p></footer>
+
+    <script>
+        
+            function calculate() {
+                const homeValue = parseFloat(document.getElementById('homeValue').value);
+                const down = parseFloat(document.getElementById('downPayment').value);
+                const principal = homeValue - down;
+                const r = (parseFloat(document.getElementById('interest').value) / 100) / 12;
+                const n = parseFloat(document.getElementById('term').value) * 12;
+                
+                if (principal > 0 && r > 0 && n > 0) {
+                    const emi = (principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+                    const totalPayment = emi * n;
+                    const totalInterest = totalPayment - principal;
+                    
+                    document.getElementById('emi').innerText = '$' + emi.toLocaleString('en-US', {maximumFractionDigits: 0});
+                    document.getElementById('interestTotal').innerText = '$' + totalInterest.toLocaleString('en-US', {maximumFractionDigits: 0});
+                    document.getElementById('grandTotal').innerText = '$' + totalPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+                }
+            }
+            document.querySelectorAll('input').forEach(i => i.addEventListener('input', calculate));
+            calculate();
+        
+    </script>
+</body>
+</html>

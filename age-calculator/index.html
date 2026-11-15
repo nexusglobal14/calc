@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --accent-bg: #eef2ff;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  /* Top Navbar matching Nexus Global style */
+  .navbar {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #fff;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  .nav-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .nav-back {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .nav-back:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Main Wrapper */
+  .main-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 16px;
+  }
+  .container {
+    background: var(--card);
+    width: 100%;
+    max-width: 760px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .header-section {
+    padding: 24px 28px 10px 28px;
+  }
+  .header-section h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .header-section p {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .content {
+    padding: 20px 28px 28px 28px;
+  }
+  .input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 580px) {
+    .input-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  input[type="date"] {
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 1rem;
+    color: var(--text);
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  input[type="date"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  }
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: #fff;
+    flex: 2;
+  }
+  .btn-primary:hover {
+    background: var(--primary-hover);
+  }
+  .btn-secondary {
+    background: #f1f5f9;
+    color: var(--text);
+    flex: 1;
+  }
+  .btn-secondary:hover {
+    background: #e2e8f0;
+  }
+  .error-msg {
+    display: none;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  .results {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-age {
+    background: var(--accent-bg);
+    border: 1px solid #c7d2fe;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .hero-age .label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .hero-age .value {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+  .hero-age .value span {
+    color: var(--primary);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .stat-card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+    word-break: break-word;
+  }
+  .stat-card .desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .extra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .info-box {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 15px;
+    background: #fff;
+  }
+  .info-box h4 {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+  }
+  .info-box p {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .info-box small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 500;
+  }
+  .copy-bar {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .btn-copy {
+    background: #0f172a;
+    color: #fff;
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+  .btn-copy:hover {
+    background: #334155;
+  }
+
+  /* Footer matching reference image */
+  footer {
+    background: #0b0f19;
+    color: #94a3b8;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.85rem;
+    border-top: 1px solid #1e293b;
+  }
+</style>
+<title>Age Calculator - Exact Age in Years, Months and Days | Nexus Global</title>
+    <meta name="description" content="Calculate your exact age in years, months and days, total days lived, next birthday countdown, day of the week born and zodiac sign. Free age calculator.">
+    <link rel="canonical" href="https://calc.nexusglobalit.org/age-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Global Calculators">
+    <meta property="og:title" content="Age Calculator - Exact Age in Years, Months and Days">
+    <meta property="og:description" content="Calculate your exact age in years, months and days, total days lived, next birthday countdown, day of the week born and zodiac sign. Free age calculator.">
+    <meta property="og:url" content="https://calc.nexusglobalit.org/age-calculator/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Advanced Age & Date Calculator", "url": "https://calc.nexusglobalit.org/age-calculator/", "description": "Calculate your exact age in years, months and days, total days lived, next birthday countdown, day of the week born and zodiac sign. Free age calculator.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Calculators", "item": "https://calc.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Age Calculator", "item": "https://calc.nexusglobalit.org/age-calculator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is exact age calculated?", "acceptedAnswer": {"@type": "Answer", "text": "By counting complete years, then complete months, then the remaining days between the two dates."}}, {"@type": "Question", "name": "Can I calculate age at a past or future date?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Change the second date to any date you like."}}, {"@type": "Question", "name": "How are leap years handled?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator uses the Gregorian calendar, so February 29 is counted in leap years."}}, {"@type": "Question", "name": "Does it know my birth time?", "acceptedAnswer": {"@type": "Answer", "text": "No. It works with dates only, so hour and minute totals are approximate."}}]}]</script>
+<style>
+.seo-content{max-width:56rem;margin:2rem auto;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;color:#475569;line-height:1.7;font-size:.95rem}
+.seo-content h2{font-size:1.2rem;font-weight:700;color:#0f172a;margin:1.4rem 0 .5rem}
+.seo-content h2:first-child{margin-top:0}
+.seo-content h3{font-size:1rem;font-weight:600;color:#1e293b;margin:.9rem 0 .2rem}
+.seo-content ol{list-style:decimal;padding-left:1.4rem}.seo-content ul.related{list-style:disc;padding-left:1.4rem}
+.seo-content a{color:#4f46e5;text-decoration:underline}
+.seo-content .disclaimer{margin-top:1.2rem;padding:.8rem 1rem;background:#f8fafc;border-left:4px solid #6366f1;font-size:.85rem}
+.site-footer{background:#0f172a;color:#94a3b8;font-size:.85rem;text-align:center;padding:1.2rem 1rem;border-top:1px solid #1e293b}
+.site-footer a{color:#cbd5e1;margin:0 .7rem}.site-footer a:hover{color:#fff}
+.breadcrumb{max-width:56rem;margin:1rem auto 0;padding:0 1rem;font-size:.8rem;color:#64748b}.breadcrumb a{color:#4f46e5}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation Bar -->
+<header class="navbar">
+  <a href="/" class="nav-brand">
+    <span>Nexus Global</span>
+    <span class="nav-badge">Calculators</span>
+  </a>
+  <a href="/" class="nav-back">← All Calculators</a>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Calculators</a> &rsaquo; <span>Age Calculator</span></nav>
+<div class="main-wrapper">
+  <div class="container">
+    <div class="header-section">
+      <h1>Advanced Age &amp; Date Calculator</h1>
+      <p>Calculate exact chronological age, total units lived, zodiac sign &amp; next birthday countdown</p>
+    </div>
+
+    <div class="content">
+      <div class="input-grid">
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob">
+        </div>
+        <div class="form-group">
+          <label for="targetDate">Age at the Date of</label>
+          <input type="date" id="targetDate">
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" id="calcBtn">Calculate Exact Age</button>
+        <button class="btn-secondary" id="resetBtn">Reset</button>
+      </div>
+
+      <div class="error-msg" id="errorMsg"></div>
+
+      <div class="results" id="results">
+        <div class="hero-age">
+          <div class="label">Exact Chronological Age</div>
+          <div class="value" id="exactAgeText"></div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="num" id="totalMonths">0</div>
+            <div class="desc">Total Months</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalWeeks">0</div>
+            <div class="desc">Total Weeks</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalDays">0</div>
+            <div class="desc">Total Days</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalHours">0</div>
+            <div class="desc">Total Hours</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalMinutes">0</div>
+            <div class="desc">Total Minutes</div>
+          </div>
+          <div class="stat-card">
+            <div class="num" id="totalSeconds">0</div>
+            <div class="desc">Total Seconds</div>
+          </div>
+        </div>
+
+        <div class="extra-grid">
+          <div class="info-box">
+            <h4>Next Birthday</h4>
+            <p id="nextBirthdayCountdown">-</p>
+            <small id="nextBirthdayDay">-</small>
+          </div>
+          <div class="info-box">
+            <h4>Born On</h4>
+            <p id="bornDayOfWeek">-</p>
+            <small id="leapYearInfo">-</small>
+          </div>
+          <div class="info-box">
+            <h4>Western Zodiac Sign</h4>
+            <p id="zodiacSign">-</p>
+            <small id="generationInfo">-</small>
+          </div>
+        </div>
+
+        <div class="copy-bar">
+          <button class="btn-copy" id="copyBtn">Copy Summary</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer matching reference image -->
+<section class="seo-content" id="about-this-calculator">
+<h2>About the Advanced Age & Date Calculator</h2>
+<p>This age calculator works out your exact age from your date of birth. You can measure your age as of today or as of any other date. Besides years, months and days, it shows total months, weeks, days, hours, minutes and seconds lived, how long until your next birthday, the weekday you were born on and your Western zodiac sign.</p>
+<h2>How to use it</h2>
+<ol><li>Select your date of birth.</li><li>Leave the second date as today, or choose a different date to calculate age at that moment.</li><li>Click Calculate Exact Age and read your results.</li><li>Use Copy Summary to copy the results.</li></ol>
+<h2>The formula</h2>
+<p>The calculator subtracts the date of birth from the target date in calendar order. It counts whole years first, then remaining whole months, then days, borrowing days from the previous month when needed. Total days are the difference in calendar days between the two dates, and total weeks, hours, minutes and seconds follow from that.</p>
+<h2>Worked example</h2>
+<p>Someone born on March 15, 2000 would be exactly 26 years old on March 15, 2026, and 26 years, 8 months and 0 days on November 15, 2026.</p>
+<h2>Things to keep in mind</h2>
+<p>Totals for hours, minutes and seconds count full days from midnight to midnight and do not account for birth time or time zone. Leap years are handled using the Gregorian calendar rules. Zodiac and generation labels are shown for general interest only.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>How is exact age calculated?</h3><p>By counting complete years, then complete months, then the remaining days between the two dates.</p></div><div class="faq-item"><h3>Can I calculate age at a past or future date?</h3><p>Yes. Change the second date to any date you like.</p></div><div class="faq-item"><h3>How are leap years handled?</h3><p>The calculator uses the Gregorian calendar, so February 29 is counted in leap years.</p></div><div class="faq-item"><h3>Does it know my birth time?</h3><p>No. It works with dates only, so hour and minute totals are approximate.</p></div>
+
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="/bmi-calculator/">BMI Calculator</a></li><li><a href="/pregnancy-due-date-calculator/">Pregnancy Due Date Calculator</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li></ul>
+</section>
+<footer class="site-footer"><nav aria-label="Footer"><a href="/">All Calculators</a><a href="/about.html">About Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a><a href="https://www.nexusglobalit.org/">Nexus Global</a></nav><p style="margin-top:.6rem">&copy; 2026 calc.nexusglobalit.org - All Rights Reserved.</p></footer>
+
+<script>
+  const dobInput = document.getElementById('dob');
+  const targetInput = document.getElementById('targetDate');
+  const calcBtn = document.getElementById('calcBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const copyBtn = document.getElementById('copyBtn');
+  const errorMsg = document.getElementById('errorMsg');
+  const resultsEl = document.getElementById('results');
+
+  function formatDateInput(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
+  function initDefaults() {
+    const today = new Date();
+    targetInput.value = formatDateInput(today);
+    const defaultDob = new Date(today.getFullYear() - 25, today.getMonth(), today.getDate());
+    dobInput.value = formatDateInput(defaultDob);
+  }
+
+  function parseLocalDate(str) {
+    if (!str) return null;
+    const [y, m, d] = str.split('-').map(Number);
+    return new Date(y, m - 1, d);
+  }
+
+  function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  }
+
+  function getZodiac(month, day) {
+    const signs = [
+      { name: "Capricorn ♑", end: [1, 19] },
+      { name: "Aquarius ♒", end: [2, 18] },
+      { name: "Pisces ♓", end: [3, 20] },
+      { name: "Aries ♈", end: [4, 19] },
+      { name: "Taurus ♉", end: [5, 20] },
+      { name: "Gemini ♊", end: [6, 20] },
+      { name: "Cancer ♋", end: [7, 22] },
+      { name: "Leo ♌", end: [8, 22] },
+      { name: "Virgo ♍", end: [9, 22] },
+      { name: "Libra ♎", end: [10, 22] },
+      { name: "Scorpio ♏", end: [11, 21] },
+      { name: "Sagittarius ♐", end: [12, 21] },
+      { name: "Capricorn ♑", end: [12, 31] }
+    ];
+    for (const s of signs) {
+      if (month < s.end[0] || (month === s.end[0] && day <= s.end[1])) {
+        return s.name;
+      }
+    }
+    return "Capricorn ♑";
+  }
+
+  function getGeneration(year) {
+    if (year >= 2025) return "Generation Beta";
+    if (year >= 2013) return "Generation Alpha";
+    if (year >= 1997) return "Generation Z";
+    if (year >= 1981) return "Millennial (Gen Y)";
+    if (year >= 1965) return "Generation X";
+    if (year >= 1946) return "Baby Boomer";
+    return "Silent Generation";
+  }
+
+  function calculateAge() {
+    const dob = parseLocalDate(dobInput.value);
+    const target = parseLocalDate(targetInput.value);
+
+    if (!dob || !target) {
+      showError("Please select both Date of Birth and Target Date.");
+      return;
+    }
+    if (dob > target) {
+      showError("Date of Birth cannot be later than the Target Date.");
+      return;
+    }
+
+    errorMsg.style.display = 'none';
+
+    let years = target.getFullYear() - dob.getFullYear();
+    let months = target.getMonth() - dob.getMonth();
+    let days = target.getDate() - dob.getDate();
+
+    if (days < 0) {
+      months--;
+      const prevMonthLastDay = new Date(target.getFullYear(), target.getMonth(), 0).getDate();
+      days += prevMonthLastDay;
+    }
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    const diffMs = target.getTime() - dob.getTime();
+    const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const totalWeeks = Math.floor(totalDays / 7);
+    const remDaysInWeeks = totalDays % 7;
+    const totalMonths = years * 12 + months;
+    const totalHours = totalDays * 24;
+    const totalMinutes = totalHours * 60;
+    const totalSeconds = totalMinutes * 60;
+
+    let nextBdayYear = target.getFullYear();
+    let nextBday = new Date(nextBdayYear, dob.getMonth(), dob.getDate());
+    if (dob.getMonth() === 1 && dob.getDate() === 29 && !isLeapYear(nextBdayYear)) {
+      nextBday = new Date(nextBdayYear, 1, 28);
+    }
+    if (nextBday < target) {
+      nextBdayYear++;
+      nextBday = new Date(nextBdayYear, dob.getMonth(), dob.getDate());
+      if (dob.getMonth() === 1 && dob.getDate() === 29 && !isLeapYear(nextBdayYear)) {
+        nextBday = new Date(nextBdayYear, 1, 28);
+      }
+    }
+
+    const daysUntilBday = Math.round((nextBday.getTime() - target.getTime()) / (1000 * 60 * 60 * 24));
+    const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    document.getElementById('exactAgeText').innerHTML =
+      `<span>${years}</span> Years, <span>${months}</span> Months, <span>${days}</span> Days`;
+
+    document.getElementById('totalMonths').textContent = totalMonths.toLocaleString();
+    document.getElementById('totalWeeks').textContent = `${totalWeeks.toLocaleString()}w ${remDaysInWeeks}d`;
+    document.getElementById('totalDays').textContent = totalDays.toLocaleString();
+    document.getElementById('totalHours').textContent = totalHours.toLocaleString();
+    document.getElementById('totalMinutes').textContent = totalMinutes.toLocaleString();
+    document.getElementById('totalSeconds').textContent = totalSeconds.toLocaleString();
+
+    if (daysUntilBday === 0) {
+      document.getElementById('nextBirthdayCountdown').textContent = "Happy Birthday! 🎉";
+      document.getElementById('nextBirthdayDay').textContent = `Today is ${dayNames[nextBday.getDay()]}`;
+    } else {
+      document.getElementById('nextBirthdayCountdown').textContent = `${daysUntilBday} Day${daysUntilBday === 1 ? '' : 's'} Left`;
+      document.getElementById('nextBirthdayDay').textContent = `Falls on ${dayNames[nextBday.getDay()]}, ${nextBday.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+    }
+
+    document.getElementById('bornDayOfWeek').textContent = dayNames[dob.getDay()];
+    document.getElementById('leapYearInfo').textContent = isLeapYear(dob.getFullYear()) ? `${dob.getFullYear()} was a Leap Year` : `${dob.getFullYear()} was a Common Year`;
+
+    document.getElementById('zodiacSign').textContent = getZodiac(dob.getMonth() + 1, dob.getDate());
+    document.getElementById('generationInfo').textContent = getGeneration(dob.getFullYear());
+
+    resultsEl.style.display = 'block';
+  }
+
+  function showError(msg) {
+    errorMsg.textContent = msg;
+    errorMsg.style.display = 'block';
+    resultsEl.style.display = 'none';
+  }
+
+  calcBtn.addEventListener('click', calculateAge);
+
+  resetBtn.addEventListener('click', () => {
+    initDefaults();
+    errorMsg.style.display = 'none';
+    resultsEl.style.display = 'none';
+  });
+
+  copyBtn.addEventListener('click', () => {
+    const exact = document.getElementById('exactAgeText').textContent;
+    const days = document.getElementById('totalDays').textContent;
+    const zodiac = document.getElementById('zodiacSign').textContent;
+    const nextBday = document.getElementById('nextBirthdayCountdown').textContent;
+    const summary = `Age: ${exact} | Total Days: ${days} | Zodiac: ${zodiac} | Next Birthday: ${nextBday}`;
+
+    navigator.clipboard.writeText(summary).then(() => {
+      const orig = copyBtn.textContent;
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => copyBtn.textContent = orig, 1800);
+    });
+  });
+
+  initDefaults();
+  calculateAge();
+</script>
+</body>
+</html>

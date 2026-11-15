@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+<title>Compound Interest Calculator - Investment Growth | Nexus Global</title>
+    <meta name="description" content="Calculate compound interest on a lump-sum deposit. Choose the rate, term and compounding frequency (monthly, quarterly or annually) to see interest earned and final balance.">
+    <link rel="canonical" href="https://calc.nexusglobalit.org/compound-interest-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Global Calculators">
+    <meta property="og:title" content="Compound Interest Calculator - Investment Growth">
+    <meta property="og:description" content="Calculate compound interest on a lump-sum deposit. Choose the rate, term and compounding frequency (monthly, quarterly or annually) to see interest earned and final balance.">
+    <meta property="og:url" content="https://calc.nexusglobalit.org/compound-interest-calculator/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Compound Interest Calculator", "url": "https://calc.nexusglobalit.org/compound-interest-calculator/", "description": "Calculate compound interest on a lump-sum deposit. Choose the rate, term and compounding frequency (monthly, quarterly or annually) to see interest earned and final balance.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Calculators", "item": "https://calc.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Compound Interest Calculator", "item": "https://calc.nexusglobalit.org/compound-interest-calculator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between simple and compound interest?", "acceptedAnswer": {"@type": "Answer", "text": "Simple interest is calculated only on the original amount. Compound interest is calculated on the original amount plus interest already earned."}}, {"@type": "Question", "name": "Does more frequent compounding help?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, slightly. Monthly compounding gives a higher balance than annual compounding at the same rate, but the gap is much smaller than the effect of the rate or the time period."}}, {"@type": "Question", "name": "Can I add monthly contributions?", "acceptedAnswer": {"@type": "Answer", "text": "Not in this tool. Use the SIP calculator for regular monthly investing."}}, {"@type": "Question", "name": "Is the rate the same as APY?", "acceptedAnswer": {"@type": "Answer", "text": "No. You enter the nominal annual rate, and the compounding setting determines the effective yield."}}]}]</script>
+<style>
+.seo-content{max-width:56rem;margin:2rem auto;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;color:#475569;line-height:1.7;font-size:.95rem}
+.seo-content h2{font-size:1.2rem;font-weight:700;color:#0f172a;margin:1.4rem 0 .5rem}
+.seo-content h2:first-child{margin-top:0}
+.seo-content h3{font-size:1rem;font-weight:600;color:#1e293b;margin:.9rem 0 .2rem}
+.seo-content ol{list-style:decimal;padding-left:1.4rem}.seo-content ul.related{list-style:disc;padding-left:1.4rem}
+.seo-content a{color:#4f46e5;text-decoration:underline}
+.seo-content .disclaimer{margin-top:1.2rem;padding:.8rem 1rem;background:#f8fafc;border-left:4px solid #6366f1;font-size:.85rem}
+.site-footer{background:#0f172a;color:#94a3b8;font-size:.85rem;text-align:center;padding:1.2rem 1rem;border-top:1px solid #1e293b}
+.site-footer a{color:#cbd5e1;margin:0 .7rem}.site-footer a:hover{color:#fff}
+.breadcrumb{max-width:56rem;margin:1rem auto 0;padding:0 1rem;font-size:.8rem;color:#64748b}.breadcrumb a{color:#4f46e5}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="https://calc.nexusglobalit.org/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span>🌐 Nexus Global</span> <span class="text-xs bg-indigo-700 px-2 py-0.5 rounded text-indigo-200">Calculators</span>
+            </a>
+            <a href="https://calc.nexusglobalit.org/" class="text-sm bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded transition">← All Calculators</a>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Calculators</a> &rsaquo; <span>Compound Interest Calculator</span></nav>
+    <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">Compound Interest Calculator</h1>
+            <p class="text-slate-600">Calculate how a one-time deposit grows with compound interest over time.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2">Inputs</h2>
+                
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Initial Deposit ($)</label>
+                <input type="number" id="principal" value="10000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Annual Interest Rate (%)</label>
+                <input type="number" id="rate" value="8" step="0.1" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Investment Term (Years)</label>
+                <input type="number" id="years" value="5" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Compounding Frequency</label>
+                <select id="freq" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <option value="12">Monthly</option>
+                    <option value="4">Quarterly</option>
+                    <option value="1" selected>Annually</option>
+                </select>
+            </div>
+        
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">Calculation Output</h2>
+                    
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Principal Deposit:</span><span id="pVal" class="font-semibold text-slate-800">$0</span></div>
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Interest Earned:</span><span id="iVal" class="font-semibold text-emerald-600">$0</span></div>
+            <div class="flex justify-between py-2 pt-3"><span class="text-slate-800 font-bold">Total Future Balance:</span><span id="tVal" class="font-bold text-xl text-indigo-600">$0</span></div>
+        
+                </div>
+            </div>
+        </div>
+
+        
+    <section class="seo-content" id="about-this-calculator">
+<h2>About the Compound Interest Calculator</h2>
+<p>Compound interest means you earn interest on your original deposit and on the interest already added. This calculator shows the future balance of a one-time deposit. Enter the initial amount, the annual interest rate, the number of years and how often interest is compounded.</p>
+<h2>How to use it</h2>
+<ol><li>Enter your initial deposit.</li><li>Enter the annual interest rate as a percentage.</li><li>Enter the number of years.</li><li>Choose the compounding frequency: monthly, quarterly or annually.</li><li>Read the interest earned and the total future balance.</li></ol>
+<h2>The formula</h2>
+<p>The balance is <strong>A = P × (1 + r ÷ n)<sup>n × t</sup></strong>, where P is the initial deposit, r is the annual rate as a decimal, n is the number of compounding periods per year and t is the number of years. Interest earned is A minus P.</p>
+<h2>Worked example</h2>
+<p>A $10,000 deposit at 8% for 5 years grows to about $14,693 with annual compounding. With monthly compounding the balance is about $14,898, roughly $205 more, because interest is added to the balance more often.</p>
+<h2>Things to keep in mind</h2>
+<p>This calculator handles a single starting deposit only. It does not include recurring contributions, withdrawals, taxes or fees. For regular monthly contributions, use the SIP calculator.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>What is the difference between simple and compound interest?</h3><p>Simple interest is calculated only on the original amount. Compound interest is calculated on the original amount plus interest already earned.</p></div><div class="faq-item"><h3>Does more frequent compounding help?</h3><p>Yes, slightly. Monthly compounding gives a higher balance than annual compounding at the same rate, but the gap is much smaller than the effect of the rate or the time period.</p></div><div class="faq-item"><h3>Can I add monthly contributions?</h3><p>Not in this tool. Use the SIP calculator for regular monthly investing.</p></div><div class="faq-item"><h3>Is the rate the same as APY?</h3><p>No. You enter the nominal annual rate, and the compounding setting determines the effective yield.</p></div>
+<p class="disclaimer"><strong>Disclaimer:</strong> This calculator gives estimates for general information only. It is not financial advice. Real-world results depend on fees, taxes, market conditions and your personal situation, so consult a qualified financial professional before making decisions.</p>
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="/sip-calculator/">SIP Calculator</a></li><li><a href="/mortgage-calculator/">Mortgage Calculator</a></li><li><a href="/roi-margin-calculator/">ROI & Profit Margin Calculator</a></li></ul>
+</section>
+</main>
+
+    <footer class="site-footer"><nav aria-label="Footer"><a href="/">All Calculators</a><a href="/about.html">About Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a><a href="https://www.nexusglobalit.org/">Nexus Global</a></nav><p style="margin-top:.6rem">&copy; 2026 calc.nexusglobalit.org - All Rights Reserved.</p></footer>
+
+    <script>
+        
+            function calculate() {
+                const principal = parseFloat(document.getElementById('principal').value);
+                const rate = parseFloat(document.getElementById('rate').value) / 100;
+                const years = parseFloat(document.getElementById('years').value);
+                const n = parseFloat(document.getElementById('freq').value);
+                
+                if (principal > 0 && rate > 0 && years > 0) {
+                    const amount = principal * Math.pow((1 + rate / n), n * years);
+                    const interest = amount - principal;
+                    document.getElementById('pVal').innerText = '$' + principal.toLocaleString('en-US');
+                    document.getElementById('iVal').innerText = '$' + interest.toLocaleString('en-US', {maximumFractionDigits: 0});
+                    document.getElementById('tVal').innerText = '$' + amount.toLocaleString('en-US', {maximumFractionDigits: 0});
+                }
+            }
+            document.querySelectorAll('input, select').forEach(i => i.addEventListener('change', calculate));
+            document.querySelectorAll('input').forEach(i => i.addEventListener('input', calculate));
+            calculate();
+        
+    </script>
+</body>
+</html>

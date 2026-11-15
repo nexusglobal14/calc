@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+<title>ROI &amp; Profit Margin Calculator | Nexus Global</title>
+    <meta name="description" content="Calculate net profit, return on investment (ROI) and profit margin from your total cost and total revenue. Free business calculator.">
+    <link rel="canonical" href="https://calc.nexusglobalit.org/roi-margin-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Global Calculators">
+    <meta property="og:title" content="ROI &amp; Profit Margin Calculator">
+    <meta property="og:description" content="Calculate net profit, return on investment (ROI) and profit margin from your total cost and total revenue. Free business calculator.">
+    <meta property="og:url" content="https://calc.nexusglobalit.org/roi-margin-calculator/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "ROI & Profit Margin Calculator", "url": "https://calc.nexusglobalit.org/roi-margin-calculator/", "description": "Calculate net profit, return on investment (ROI) and profit margin from your total cost and total revenue. Free business calculator.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Calculators", "item": "https://calc.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "ROI & Profit Margin Calculator", "item": "https://calc.nexusglobalit.org/roi-margin-calculator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between ROI and profit margin?", "acceptedAnswer": {"@type": "Answer", "text": "ROI divides profit by cost. Margin divides profit by revenue. The same deal gives a higher ROI than margin whenever it is profitable."}}, {"@type": "Question", "name": "What is a good ROI?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the industry, the risk and the time period. Compare against alternatives, not a single universal number."}}, {"@type": "Question", "name": "Can ROI be negative?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If revenue is lower than cost, you made a loss and ROI is negative."}}, {"@type": "Question", "name": "Does it include taxes?", "acceptedAnswer": {"@type": "Answer", "text": "No. It uses the cost and revenue figures you enter."}}]}]</script>
+<style>
+.seo-content{max-width:56rem;margin:2rem auto;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;color:#475569;line-height:1.7;font-size:.95rem}
+.seo-content h2{font-size:1.2rem;font-weight:700;color:#0f172a;margin:1.4rem 0 .5rem}
+.seo-content h2:first-child{margin-top:0}
+.seo-content h3{font-size:1rem;font-weight:600;color:#1e293b;margin:.9rem 0 .2rem}
+.seo-content ol{list-style:decimal;padding-left:1.4rem}.seo-content ul.related{list-style:disc;padding-left:1.4rem}
+.seo-content a{color:#4f46e5;text-decoration:underline}
+.seo-content .disclaimer{margin-top:1.2rem;padding:.8rem 1rem;background:#f8fafc;border-left:4px solid #6366f1;font-size:.85rem}
+.site-footer{background:#0f172a;color:#94a3b8;font-size:.85rem;text-align:center;padding:1.2rem 1rem;border-top:1px solid #1e293b}
+.site-footer a{color:#cbd5e1;margin:0 .7rem}.site-footer a:hover{color:#fff}
+.breadcrumb{max-width:56rem;margin:1rem auto 0;padding:0 1rem;font-size:.8rem;color:#64748b}.breadcrumb a{color:#4f46e5}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="https://calc.nexusglobalit.org/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span>🌐 Nexus Global</span> <span class="text-xs bg-indigo-700 px-2 py-0.5 rounded text-indigo-200">Calculators</span>
+            </a>
+            <a href="https://calc.nexusglobalit.org/" class="text-sm bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded transition">← All Calculators</a>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Calculators</a> &rsaquo; <span>ROI & Profit Margin Calculator</span></nav>
+    <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">ROI & Profit Margin Calculator</h1>
+            <p class="text-slate-600">Determine business Return on Investment (ROI) and net profit percentage margins.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2">Inputs</h2>
+                
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Total Cost / Investment ($)</label>
+                <input type="number" id="cost" value="1000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Total Revenue ($)</label>
+                <input type="number" id="rev" value="1500" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+        
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">Calculation Output</h2>
+                    
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Net Profit:</span><span id="profit" class="font-semibold text-emerald-600">$0</span></div>
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">ROI Percentage:</span><span id="roiVal" class="font-bold text-xl text-indigo-600">0%</span></div>
+            <div class="flex justify-between py-2 pt-3"><span class="text-slate-800 font-bold">Profit Margin:</span><span id="marginVal" class="font-semibold text-slate-800">0%</span></div>
+        
+                </div>
+            </div>
+        </div>
+
+        
+    <section class="seo-content" id="about-this-calculator">
+<h2>About the ROI & Profit Margin Calculator</h2>
+<p>Return on investment (ROI) and profit margin are two of the most common ways to measure business performance, and they are easy to confuse. This calculator takes your total cost and total revenue and shows net profit, ROI and profit margin together.</p>
+<h2>How to use it</h2>
+<ol><li>Enter your total cost or investment.</li><li>Enter your total revenue from that investment.</li><li>Read the net profit, ROI percentage and profit margin.</li></ol>
+<h2>The formula</h2>
+<p><strong>Net profit = revenue − cost</strong>. <strong>ROI = (net profit ÷ cost) × 100</strong>. <strong>Profit margin = (net profit ÷ revenue) × 100</strong>. ROI compares profit to what you put in. Margin compares profit to what you took in.</p>
+<h2>Worked example</h2>
+<p>You spend $1,000 and earn $1,500 in revenue. Net profit is $500. ROI is 500 ÷ 1,000 = 50%. Profit margin is 500 ÷ 1,500 = 33.33%.</p>
+<h2>Things to keep in mind</h2>
+<p>Use the same time period and the same definition of cost for every comparison. Include all costs, such as materials, labor, advertising and fees, or the result will look better than reality. A negative result means a loss.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>What is the difference between ROI and profit margin?</h3><p>ROI divides profit by cost. Margin divides profit by revenue. The same deal gives a higher ROI than margin whenever it is profitable.</p></div><div class="faq-item"><h3>What is a good ROI?</h3><p>It depends on the industry, the risk and the time period. Compare against alternatives, not a single universal number.</p></div><div class="faq-item"><h3>Can ROI be negative?</h3><p>Yes. If revenue is lower than cost, you made a loss and ROI is negative.</p></div><div class="faq-item"><h3>Does it include taxes?</h3><p>No. It uses the cost and revenue figures you enter.</p></div>
+<p class="disclaimer"><strong>Disclaimer:</strong> This calculator gives estimates for general information only. It is not financial advice. Real-world results depend on fees, taxes, market conditions and your personal situation, so consult a qualified financial professional before making decisions.</p>
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/crypto-dca-calculator/">Crypto Profit Calculator</a></li><li><a href="/compound-interest-calculator/">Compound Interest Calculator</a></li></ul>
+</section>
+</main>
+
+    <footer class="site-footer"><nav aria-label="Footer"><a href="/">All Calculators</a><a href="/about.html">About Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a><a href="https://www.nexusglobalit.org/">Nexus Global</a></nav><p style="margin-top:.6rem">&copy; 2026 calc.nexusglobalit.org - All Rights Reserved.</p></footer>
+
+    <script>
+        
+            function calculate() {
+                const cost = parseFloat(document.getElementById('cost').value);
+                const rev = parseFloat(document.getElementById('rev').value);
+                
+                if (cost > 0 && rev >= 0) {
+                    const profit = rev - cost;
+                    const roi = (profit / cost) * 100;
+                    const margin = rev > 0 ? (profit / rev) * 100 : 0;
+                    
+                    document.getElementById('profit').innerText = '$' + profit.toLocaleString('en-US');
+                    document.getElementById('roiVal').innerText = roi.toFixed(2) + '%';
+                    document.getElementById('marginVal').innerText = margin.toFixed(2) + '%';
+                }
+            }
+            document.querySelectorAll('input').forEach(i => i.addEventListener('input', calculate));
+            calculate();
+        
+    </script>
+</body>
+</html>

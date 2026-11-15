@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+<title>BMI Calculator - Body Mass Index (kg and cm) | Nexus Global</title>
+    <meta name="description" content="Calculate your Body Mass Index from weight in kg and height in cm and see the standard WHO adult category. Free BMI calculator.">
+    <link rel="canonical" href="https://calc.nexusglobalit.org/bmi-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Global Calculators">
+    <meta property="og:title" content="BMI Calculator - Body Mass Index (kg and cm)">
+    <meta property="og:description" content="Calculate your Body Mass Index from weight in kg and height in cm and see the standard WHO adult category. Free BMI calculator.">
+    <meta property="og:url" content="https://calc.nexusglobalit.org/bmi-calculator/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "BMI Body Mass Index Calculator", "url": "https://calc.nexusglobalit.org/bmi-calculator/", "description": "Calculate your Body Mass Index from weight in kg and height in cm and see the standard WHO adult category. Free BMI calculator.", "applicationCategory": "HealthApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Calculators", "item": "https://calc.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "BMI Calculator", "item": "https://calc.nexusglobalit.org/bmi-calculator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a healthy BMI range?", "acceptedAnswer": {"@type": "Answer", "text": "For most adults, 18.5 to 24.9 is classed as normal weight by the WHO."}}, {"@type": "Question", "name": "Is BMI accurate for athletes?", "acceptedAnswer": {"@type": "Answer", "text": "Often not. Muscle weighs more than fat, so muscular people can have a high BMI without excess body fat."}}, {"@type": "Question", "name": "Can I use this for children?", "acceptedAnswer": {"@type": "Answer", "text": "No. Children and teenagers use age- and sex-specific percentile charts."}}, {"@type": "Question", "name": "What should I do if my BMI is outside the normal range?", "acceptedAnswer": {"@type": "Answer", "text": "BMI alone does not say anything definitive about your health. Speak to a healthcare professional, who can consider other measurements and your overall health."}}]}]</script>
+<style>
+.seo-content{max-width:56rem;margin:2rem auto;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;color:#475569;line-height:1.7;font-size:.95rem}
+.seo-content h2{font-size:1.2rem;font-weight:700;color:#0f172a;margin:1.4rem 0 .5rem}
+.seo-content h2:first-child{margin-top:0}
+.seo-content h3{font-size:1rem;font-weight:600;color:#1e293b;margin:.9rem 0 .2rem}
+.seo-content ol{list-style:decimal;padding-left:1.4rem}.seo-content ul.related{list-style:disc;padding-left:1.4rem}
+.seo-content a{color:#4f46e5;text-decoration:underline}
+.seo-content .disclaimer{margin-top:1.2rem;padding:.8rem 1rem;background:#f8fafc;border-left:4px solid #6366f1;font-size:.85rem}
+.site-footer{background:#0f172a;color:#94a3b8;font-size:.85rem;text-align:center;padding:1.2rem 1rem;border-top:1px solid #1e293b}
+.site-footer a{color:#cbd5e1;margin:0 .7rem}.site-footer a:hover{color:#fff}
+.breadcrumb{max-width:56rem;margin:1rem auto 0;padding:0 1rem;font-size:.8rem;color:#64748b}.breadcrumb a{color:#4f46e5}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="https://calc.nexusglobalit.org/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span>🌐 Nexus Global</span> <span class="text-xs bg-indigo-700 px-2 py-0.5 rounded text-indigo-200">Calculators</span>
+            </a>
+            <a href="https://calc.nexusglobalit.org/" class="text-sm bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded transition">← All Calculators</a>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Calculators</a> &rsaquo; <span>BMI Calculator</span></nav>
+    <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">BMI Body Mass Index Calculator</h1>
+            <p class="text-slate-600">Calculate your Body Mass Index (BMI) and check health status category according to standard WHO guidelines.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2">Inputs</h2>
+                
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Weight (kg)</label>
+                <input type="number" id="weightBmi" value="70" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Height (cm)</label>
+                <input type="number" id="heightBmi" value="170" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+        
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">Calculation Output</h2>
+                    
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Your BMI:</span><span id="bmiVal" class="font-bold text-2xl text-indigo-600">0</span></div>
+            <div class="flex justify-between py-2 pt-3"><span class="text-slate-800 font-bold">Category:</span><span id="bmiCat" class="font-semibold text-emerald-600">Normal</span></div>
+        
+                </div>
+            </div>
+        </div>
+
+        
+    <section class="seo-content" id="about-this-calculator">
+<h2>About the BMI Body Mass Index Calculator</h2>
+<p>Body Mass Index (BMI) is a simple number that relates weight to height. It is widely used as a screening tool for adults. Enter your weight in kilograms and your height in centimeters to see your BMI and the matching category.</p>
+<h2>How to use it</h2>
+<ol><li>Enter your weight in kilograms.</li><li>Enter your height in centimeters.</li><li>Read your BMI and its category.</li></ol>
+<h2>The formula</h2>
+<p><strong>BMI = weight (kg) ÷ height (m)<sup>2</sup></strong>. Height in centimeters is divided by 100 to convert it to meters. The adult categories used here are: under 18.5 underweight; 18.5 to 24.9 normal weight; 25 to 29.9 overweight; 30 and above obese.</p>
+<h2>Worked example</h2>
+<p>A person who weighs 70 kg and is 170 cm (1.70 m) tall has a BMI of 70 ÷ 2.89 = 24.2, which falls in the normal weight range.</p>
+<h2>Things to keep in mind</h2>
+<p>BMI is a screening measure, not a diagnosis. It does not distinguish muscle from fat, does not consider where fat is carried and may not suit athletes, older adults, pregnant women or children. Different populations can also have different recommended ranges. These categories apply to adults only.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>What is a healthy BMI range?</h3><p>For most adults, 18.5 to 24.9 is classed as normal weight by the WHO.</p></div><div class="faq-item"><h3>Is BMI accurate for athletes?</h3><p>Often not. Muscle weighs more than fat, so muscular people can have a high BMI without excess body fat.</p></div><div class="faq-item"><h3>Can I use this for children?</h3><p>No. Children and teenagers use age- and sex-specific percentile charts.</p></div><div class="faq-item"><h3>What should I do if my BMI is outside the normal range?</h3><p>BMI alone does not say anything definitive about your health. Speak to a healthcare professional, who can consider other measurements and your overall health.</p></div>
+<p class="disclaimer"><strong>Disclaimer:</strong> This calculator is for general information only and is not medical advice. It cannot diagnose any condition. Please talk to a doctor or other qualified healthcare professional about your own health.</p>
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="/calorie-tdee-calculator/">Calorie & TDEE Calculator</a></li><li><a href="/age-calculator/">Age Calculator</a></li><li><a href="/pregnancy-due-date-calculator/">Pregnancy Due Date Calculator</a></li></ul>
+</section>
+</main>
+
+    <footer class="site-footer"><nav aria-label="Footer"><a href="/">All Calculators</a><a href="/about.html">About Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a><a href="https://www.nexusglobalit.org/">Nexus Global</a></nav><p style="margin-top:.6rem">&copy; 2026 calc.nexusglobalit.org - All Rights Reserved.</p></footer>
+
+    <script>
+        
+            function calculate() {
+                const w = parseFloat(document.getElementById('weightBmi').value);
+                const h = parseFloat(document.getElementById('heightBmi').value) / 100;
+                
+                if (w > 0 && h > 0) {
+                    const bmi = w / (h * h);
+                    document.getElementById('bmiVal').innerText = bmi.toFixed(1);
+                    
+                    let cat = 'Normal weight';
+                    if (bmi < 18.5) cat = 'Underweight';
+                    else if (bmi >= 25 && bmi < 30) cat = 'Overweight';
+                    else if (bmi >= 30) cat = 'Obese';
+                    
+                    document.getElementById('bmiCat').innerText = cat;
+                }
+            }
+            document.querySelectorAll('input').forEach(i => i.addEventListener('input', calculate));
+            calculate();
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+<title>Crypto Profit Calculator - Buy and Sell Gains | Nexus Global</title>
+    <meta name="description" content="Calculate how many coins your investment buys and your profit or loss at a target sell price. Includes how to find your average cost when buying in several steps.">
+    <link rel="canonical" href="https://calc.nexusglobalit.org/crypto-dca-calculator/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nexus Global Calculators">
+    <meta property="og:title" content="Crypto Profit Calculator - Buy and Sell Gains">
+    <meta property="og:description" content="Calculate how many coins your investment buys and your profit or loss at a target sell price. Includes how to find your average cost when buying in several steps.">
+    <meta property="og:url" content="https://calc.nexusglobalit.org/crypto-dca-calculator/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "Crypto Profit Calculator", "url": "https://calc.nexusglobalit.org/crypto-dca-calculator/", "description": "Calculate how many coins your investment buys and your profit or loss at a target sell price. Includes how to find your average cost when buying in several steps.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Nexus Global Information Technology", "url": "https://www.nexusglobalit.org/"}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Calculators", "item": "https://calc.nexusglobalit.org/"}, {"@type": "ListItem", "position": 2, "name": "Crypto Profit Calculator", "item": "https://calc.nexusglobalit.org/crypto-dca-calculator/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is dollar-cost averaging?", "acceptedAnswer": {"@type": "Answer", "text": "It is a strategy of investing a fixed amount on a regular schedule, regardless of price, so you buy more coins when prices are low and fewer when they are high."}}, {"@type": "Question", "name": "How do I find my average buy price?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the total money you spent by the total number of coins you own."}}, {"@type": "Question", "name": "Are fees included?", "acceptedAnswer": {"@type": "Answer", "text": "No. Exchange and network fees will reduce your real profit."}}, {"@type": "Question", "name": "Can I use this for stocks?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The same arithmetic applies to any asset bought at one price and sold at another."}}]}]</script>
+<style>
+.seo-content{max-width:56rem;margin:2rem auto;padding:1.5rem;background:#fff;border:1px solid #e2e8f0;border-radius:.75rem;color:#475569;line-height:1.7;font-size:.95rem}
+.seo-content h2{font-size:1.2rem;font-weight:700;color:#0f172a;margin:1.4rem 0 .5rem}
+.seo-content h2:first-child{margin-top:0}
+.seo-content h3{font-size:1rem;font-weight:600;color:#1e293b;margin:.9rem 0 .2rem}
+.seo-content ol{list-style:decimal;padding-left:1.4rem}.seo-content ul.related{list-style:disc;padding-left:1.4rem}
+.seo-content a{color:#4f46e5;text-decoration:underline}
+.seo-content .disclaimer{margin-top:1.2rem;padding:.8rem 1rem;background:#f8fafc;border-left:4px solid #6366f1;font-size:.85rem}
+.site-footer{background:#0f172a;color:#94a3b8;font-size:.85rem;text-align:center;padding:1.2rem 1rem;border-top:1px solid #1e293b}
+.site-footer a{color:#cbd5e1;margin:0 .7rem}.site-footer a:hover{color:#fff}
+.breadcrumb{max-width:56rem;margin:1rem auto 0;padding:0 1rem;font-size:.8rem;color:#64748b}.breadcrumb a{color:#4f46e5}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="https://calc.nexusglobalit.org/" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span>🌐 Nexus Global</span> <span class="text-xs bg-indigo-700 px-2 py-0.5 rounded text-indigo-200">Calculators</span>
+            </a>
+            <a href="https://calc.nexusglobalit.org/" class="text-sm bg-indigo-700 hover:bg-indigo-800 px-3 py-1.5 rounded transition">← All Calculators</a>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Calculators</a> &rsaquo; <span>Crypto Profit Calculator</span></nav>
+    <main class="max-w-4xl mx-auto w-full p-4 md:p-8 flex-grow">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">Crypto Profit Calculator</h1><p class="text-slate-600">Calculate how many coins your investment buys and your profit or loss at a target sell price.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-8">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-800 border-b pb-2">Inputs</h2>
+                
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Buy Price ($)</label>
+                <input type="number" id="buyPrice" value="50000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Sell Price ($)</label>
+                <input type="number" id="sellPrice" value="65000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Investment ($)</label>
+                <input type="number" id="inv" value="1000" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            </div>
+        
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-800 border-b pb-2 mb-4">Calculation Output</h2>
+                    
+            <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-600">Tokens / Coins:</span><span id="coins" class="font-semibold text-slate-800">0</span></div>
+            <div class="flex justify-between py-2 pt-3"><span class="text-slate-800 font-bold">Total Profit / Loss:</span><span id="cryptoProfit" class="font-bold text-xl text-emerald-600">$0</span></div>
+        
+                </div>
+            </div>
+        </div>
+
+        
+    <section class="seo-content" id="about-this-calculator">
+<h2>About the Crypto Profit Calculator</h2>
+<p>This calculator shows how much a crypto position would gain or lose if you bought at one price and sold at another. Enter your buy price, your sell price and the amount you invested. It shows how many coins you bought and the profit or loss in dollars.</p>
+<h2>How to use it</h2>
+<ol><li>Enter the price you bought at, per coin.</li><li>Enter the price you expect to sell at, per coin.</li><li>Enter the amount you invested in dollars.</li><li>Read the number of coins and the total profit or loss.</li></ol>
+<h2>The formula</h2>
+<p><strong>Coins = investment ÷ buy price</strong>. <strong>Sale value = coins × sell price</strong>. <strong>Profit or loss = sale value − investment</strong>.</p>
+<h2>Worked example</h2>
+<p>You invest $1,000 at a buy price of $50,000 per coin and get 0.02 coins. Selling at $65,000 gives $1,300, a profit of $300 or 30%.</p>
+<h2>Things to keep in mind</h2>
+<p>Dollar-cost averaging (DCA) means buying a fixed amount at regular intervals. This tool models one purchase. To evaluate a DCA plan, divide your total dollars invested by the total coins you bought to get your average cost, and enter that average as the buy price. Trading fees, network fees and taxes are not included.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq-item"><h3>What is dollar-cost averaging?</h3><p>It is a strategy of investing a fixed amount on a regular schedule, regardless of price, so you buy more coins when prices are low and fewer when they are high.</p></div><div class="faq-item"><h3>How do I find my average buy price?</h3><p>Divide the total money you spent by the total number of coins you own.</p></div><div class="faq-item"><h3>Are fees included?</h3><p>No. Exchange and network fees will reduce your real profit.</p></div><div class="faq-item"><h3>Can I use this for stocks?</h3><p>Yes. The same arithmetic applies to any asset bought at one price and sold at another.</p></div>
+<p class="disclaimer"><strong>Disclaimer:</strong> Cryptocurrency prices are highly volatile and you can lose some or all of your investment. This calculator is for general information only and is not financial or investment advice. It does not include trading fees, spreads or taxes.</p>
+<h2>Related calculators</h2>
+<ul class="related"><li><a href="/roi-margin-calculator/">ROI & Profit Margin Calculator</a></li><li><a href="/percentage-calculator/">Percentage Calculator</a></li><li><a href="/sip-calculator/">SIP Calculator</a></li></ul>
+</section>
+</main>
+
+    <footer class="site-footer"><nav aria-label="Footer"><a href="/">All Calculators</a><a href="/about.html">About Us</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact Us</a><a href="https://www.nexusglobalit.org/">Nexus Global</a></nav><p style="margin-top:.6rem">&copy; 2026 calc.nexusglobalit.org - All Rights Reserved.</p></footer>
+
+    <script>
+        
+            function calculate() {
+                const buy = parseFloat(document.getElementById('buyPrice').value);
+                const sell = parseFloat(document.getElementById('sellPrice').value);
+                const inv = parseFloat(document.getElementById('inv').value);
+                
+                if (buy > 0 && sell > 0 && inv > 0) {
+                    const coins = inv / buy;
+                    const totalVal = coins * sell;
+                    const profit = totalVal - inv;
+                    
+                    document.getElementById('coins').innerText = coins.toFixed(4);
+                    document.getElementById('cryptoProfit').innerText = '$' + profit.toLocaleString('en-US', {maximumFractionDigits: 2});
+                }
+            }
+            document.querySelectorAll('input').forEach(i => i.addEventListener('input', calculate));
+            calculate();
+        
+    </script>
+</body>
+</html>
